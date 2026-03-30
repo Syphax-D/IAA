@@ -91,7 +91,7 @@ if __name__ == "__main__":
     nom_modele = "modele_svm.joblib"
     
     # collez le File path directement ici
-    dossier_a_tester = ("C:/Users/Syssou/Downloads/Data CC2/Data CC2")
+    dossier_a_tester = ("C:/Users/Syssou/Downloads/Donnees CC3/Donnees CC3")
     fichier_resultat = "resultats_predictions_svm.txt"
     
     if os.path.exists(nom_modele):
