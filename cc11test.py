@@ -153,7 +153,7 @@ algos = [
         }
     },
     {
-        "name": "SVM (RBF, C=0.5)",
+        "name": "SVM (RBF, C=1)",
         "hyper_param": {
             "kernel": "rbf",
             "C": 1,
@@ -169,11 +169,12 @@ for algo in algos:
     print(f"Erreur empirique  : {erreurempirique(S)*100:.2f} %")
     print(f"Erreur Cross-Val  : {crossValidationError(S, algo, k=5)*100:.2f} %")
 
+# Décommentez seulement le modele que vous voulez sauvegarder
     #if algo["name"] == "RandomForest":
         #nom_fichier_modele = "modele_random_forest.joblib"
         #joblib.dump(model, nom_fichier_modele)
         #print(f"Modele sauvgardé sous: {nom_fichier_modele}")
-    #elif algo["name"] == "SVM (RBF, C=0.5)":
-        #nom_fichier_modele = "modele_svm_05.joblib"
+    #if algo["name"] == "SVM (RBF, C=1)":
+        #nom_fichier_modele = "modele_svm.joblib"
         #joblib.dump(model, nom_fichier_modele)
         #print(f"Modele sauvgardé sous: {nom_fichier_modele}")

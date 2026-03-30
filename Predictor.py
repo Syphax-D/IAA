@@ -6,8 +6,8 @@ class ImagePredictor:
     def __init__(self, model_path):
     
         self.model = joblib.load(model_path)
-        self.h = 200
-        self.l = 200
+        self.h = 64
+        self.l = 64
 
     def resizeImage(self, i):
         return i.resize((self.l, self.h))
@@ -52,7 +52,7 @@ class ImagePredictor:
 
     def predict_image(self, image_path):
         
-        img = Image.open(image_path).convert("RGB")
+        img = Image.open(image_path).convert("HSV")
         img_resized = self.resizeImage(img)
         features = self.computeHisto(img_resized)
         
@@ -88,10 +88,11 @@ class ImagePredictor:
 
 if __name__ == "__main__":
     
-    nom_modele = "modele_svm_05.joblib"
+    nom_modele = "modele_svm.joblib"
     
+    # collez le File path directement ici
     dossier_a_tester = ("C:/Users/Syssou/Downloads/Data CC2/Data CC2")
-    fichier_resultat = "resultats_predictions_svm_05.txt"
+    fichier_resultat = "resultats_predictions_svm.txt"
     
     if os.path.exists(nom_modele):
         print("Chargement du prédicteur")
